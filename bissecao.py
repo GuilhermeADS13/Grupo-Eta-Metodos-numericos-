@@ -1,0 +1,1 @@
+#implementa a bisseção aqui

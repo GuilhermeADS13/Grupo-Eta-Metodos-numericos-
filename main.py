@@ -1,41 +1,8 @@
-import math
-
-#Problema inicial
-#Equação dada no projeto: E - R * i - g(i) = 0
-#Sendo e = 10, r = 2, g(i) = i**3
-
-def f(i):
-    return 10 - 2 * i - (i ** 3)
+from problema import f, f_linha, eps1, eps2, kmax
+import bissecao
+from newton_raphson import newton_raphson
+import ponto_fixo
 
 
-
-def f_linha(i): 
-    return -2 - 3 * (i ** 2)
-
-
-eps1 = 1e-4 
-eps2 = 1e-4 
-kmax = 50 
-
-
-
-#implementa a bisseção aqui 
-
-
-#Implementa o newton- raphson aqui
-E = 10
-R = 2
-
-i = 1 
-
-for n in range(6):
-    f = E - Ri - i**3
-    f_linha = -R - 3*i**2
-
-    i = i - f/f_linha #formula newton-raphson
-    print("iteracao" , n ,"i =" , i)
-
-
-#Implementa o ponto fixo aqui
-
-
+raiz, iteracoes = newton_raphson(f, f_linha, 1, eps1, eps2, kmax)
+print("Newton-Raphson: i =", raiz, "em", iteracoes, "iteracoes")
